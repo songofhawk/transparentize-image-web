@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF8">
+        <style>
+            canvas {
+                cursor: crosshair;
+                background: url(./image/tt-bg.gif);
+            }
+            .image-wrapper{
+                display: inline-block;
+            }
+            .logo-image {
+                background: url(./image/tt-bg.gif);
+                max-width:300px;
+            }
+            .image-title{
+                width: 100%;
+                float: left;
+                text-align: center;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <input id="file-btn"  type="file" name="files">
+            <p>取色色值：<input id="color-btn" type="color"></p>
+        </div>
+        <div id='preview-area'>
+            <span class="image-wrapper">
+                <image id='src-image' class="logo-image"></image>
+                <label class="image-title">源图</label>
+            </span>
+            <span class="image-wrapper">
+                <image id='trt-image' class="logo-image"></image>
+                <label class="image-title">目标图</label>
+            </span>
+        </div>
+        <div id='preview-area'>
+            <canvas id='editor-canvas'>
+
+            </canvas>
+        </div>    
+        <script  type="text/javascript" src="./script/editor.js"></script>
+        <script  type="text/javascript" src="./script/web-image-transparent.js"></script>
+    </body>
+
+    
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF8">
+        <style>
+            .logo-image {
+                background: url(./image/tt-bg.gif);
+                /* max-width:400px; */
+            }
+
+            .cutout-image {
+                max-width: 600px;
+                max-height: 600px;
+            }
+            .cutout-canvas {
+                max-width: 800px;
+                max-height: 800px;
+                /* background-color: rgba(247,160,47); */
+                /* background-color: #52393B; */
+                background: url(./image/tt-bg.gif);
+                cursor: crosshair;
+                /* max-width:400px; */
+            }
+            .eagle-eye-canvas {
+                max-width: 300px;
+                max-height: 300px;
+                background: url(./image/tt-bg.gif);
+            }
+            .toolbar{
+                margin:4px;
+                border: 1px solid black;
+                display: inline-block;
+                /*height: 100%;*/
+                position: relative;
+            }
+            .image-box{
+                margin:4px;
+                border: 5px solid gray;
+                display: inline-block;
+                position: relative;
+            }
+            .image-title{
+                position: absolute;
+                top:0.5em;
+                height: 2em;
+                width: 20em;
+                margin: 0 0 0 -10em;
+                left: 50%;
+                text-align: center;
+                font-size: 2em;
+                color:grey;
+                letter-spacing: 1em;
+                text-indent: 1em; /*解决加了字间距以后, 不能居中的问题*/
+            }
+            #zoom-input{
+                text-align: right;
+            }
+            #color-span{
+                width:20px;
+                height: 20px;
+                vertical-align: middle;
+                line-height: 20px;
+                display: inline-block;
+                border:1px solid gray;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h3>背景转透明</h3>
+            <image id='src-image' class="logo-image"></image>
+            <image id='tgt-image' class="logo-image"></image>
+            <div>
+                <input id="file-btn"  type="file" name="files">
+                <p>取色色值：<input id="color-btn" type="color"></p>
+            </div>
+        </div>
+
+        <div>
+            <h3>抠图替换色块</h3>
+            <span class='image-box'>
+                <h3 class="image-title">原图</h3>
+                <image id='cutout-src-image' class="cutout-image"></image>
+            </span>
+            <span class='image-box'>
+                <!-- <h3 class="image-title">操作图</h3> -->
+                <canvas id='cutout-tgt-image' class="cutout-canvas" tabindex="0"></canvas>
+                <span class='toolbar'>
+                    <div>
+                        <input id="smooth-check" type="checkbox" checked="true"/><label for="smooth-check">反锯齿</label>
+                    </div>
+                    <div>
+                        <button id="pick-color-btn" type="button">取色</button>
+                        <span id="color-span"></span>
+                        <button id="pan-btn" type="button">平移</button>
+                        <button id="transparent-btn" type="button">抠图</button>
+                    </div>
+                    <canvas id='full-canvas' class="eagle-eye-canvas"></canvas>
+                </span>
+            </span>
+
+
+            <div>
+                <input id="cutout-file-btn"  type="file" name="files">
+                <p>取色色值：<input id="cutout-color-btn" type="color"></p>
+                <input id="zoom-input" type="number" value="1.2">
+            </div>
+
+            <!--<div style="width:600px;height:600px">-->
+                <!--<svg width="100%" height="100%">-->
+                    <!--<defs>-->
+                        <!--<pattern id="polka-dots" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">-->
+                            <!--<image xlink:href="./image/face.png" x="0" y="0" width="50" height="50"></image>-->
+
+                        <!--</pattern>-->
+
+
+                    <!--</defs>-->
+
+                    <!--<rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect>-->
+                <!--</svg>-->
+            <!--</div>-->
+            <div id="svg-test" style="width:600px;height:600px">
+
+            </div>
+        </div>
+        <script  type="text/javascript" src="./script/CanvasImage.js"></script>
+        <script  type="text/javascript" src="./script/web-image-transparent.js"></script>
+        <script  type="text/javascript" src="./script/index.js"></script>
+    </body>
+
+
+
+    
+</html>
